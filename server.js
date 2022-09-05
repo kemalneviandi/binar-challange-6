@@ -81,12 +81,15 @@ app.post("/edit/:id", async (req,res) => {
     await biodata.update(req.body)
     res.redirect("/dashboard")
 })
-app.get("/details", async (req,res) =>{
+app.get("/details/:id", async (req,res) =>{
     const {id}=req.params
     const user= await models.UserGame.findOne({
-        where: {id: id}
+        where: {id: id}, include:[models.UserBiodata]
     })
-    res.render("details",{user})
+    const histories= await models.UserHistory.findAll({
+        where: {UserGameId: id}
+    })
+    res.render("details",{user,histories})
 })
 
 app.get("/delete/:id", async(req, res) => {

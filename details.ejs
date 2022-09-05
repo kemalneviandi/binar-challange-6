@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <h1 class="">details</h1>
+    <a href="/">Add New</a>
+    <br />
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <td><%= user.id %> </td>
+            </tr>
+            <tr>
+                <th>Username</t>
+                    <td><%= user.username %> </td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+            <td><%= user.UserBiodatum.dob %> </td>
+        </tr>
+        <tr>
+            <th>Place of Birth</th>
+            <td><%= user.UserBiodatum.pob %> </td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td><%= user.UserBiodatum.city %> </td>
+        </tr>  
+    </thead>
+    </table>
+    <table class="table-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Time</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% histories.forEach(function(history) { %>
+                <tr>
+                    <td>
+                        <%= history.id %>
+                    </td>
+                    <td>
+                        <%= history.time %>
+                    </td>
+                    <td>
+                        <%= history.score %> 
+                    </td>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+  </body>
+</html>
